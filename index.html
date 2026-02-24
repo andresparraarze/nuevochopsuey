@@ -1155,9 +1155,12 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a href="#" class="nav-logo">
-      Nuevo Chop Suey
-      <span>Restaurante Chino · Yopal</span>
+    <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:0.75rem;">
+      <img src="main_logo.jpg" alt="Nuevo Chop Suey" style="height:45px;">
+      <div>
+        Nuevo Chop Suey
+        <span>Restaurante Chino · Yopal</span>
+      </div>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Nosotros</a></li>
@@ -1186,7 +1189,7 @@
       <div class="hero-badge">Restaurante Chino · Yopal, Casanare</div>
       <h1 class="hero-title"><span class="gold">Nuevo</span> Chop Suey</h1>
       <p class="hero-sub">Cocina Oriental · Sabor Llanero</p>
-      <p class="hero-tagline">"Sabores de Oriente con el alma del llano"</p>
+      <p class="hero-tagline">"El primer restaurante chino en Yopal"</p>
       <div class="hero-btns">
         <a href="#menu" class="btn-primary">Ver Menú</a>
         <a href="#delivery" class="btn-secondary">Pedir Domicilio</a>
@@ -1213,13 +1216,8 @@
           <h2 class="section-title">Tradición, Sabor y Familia</h2>
           <div class="divider"></div>
           <p>
-            Nuevo Chop Suey nació del amor por la cocina y por el Yopal que adoptamos como hogar. Combinamos recetas
-            auténticas de la cocina china con los sabores vibrantes y los ingredientes frescos del llano colombiano.
-          </p>
-          <p>
-            Cada plato que llega a tu mesa es preparado con ingredientes frescos, salsas de la casa y ese cariño
-            familiar que nos distingue desde el primer día. Aquí no hay reservas — simplemente llegas, te sientas, y te
-            atendemos como en casa.
+            Nuevo Chop Suey es el primer restaurante chino en Yopal: sabores auténticos, ingredientes frescos y el toque
+            oriental que tu paladar esperaba. ¡Visítanos y vive la experiencia!
           </p>
           <div class="about-features">
             <span class="feature">Ingredientes frescos</span>
@@ -1265,203 +1263,23 @@
         </p>
       </div>
 
-      <div class="menu-tabs">
-        <button class="tab-btn active" onclick="showTab('arroz', this)">Arroces</button>
-        <button class="tab-btn" onclick="showTab('carnes', this)">Carnes</button>
-        <button class="tab-btn" onclick="showTab('sopas', this)">Sopas & Entradas</button>
-        <button class="tab-btn" onclick="showTab('combos', this)">Combos</button>
-        <button class="tab-btn" onclick="showTab('bebidas', this)">Bebidas</button>
+      <div style="text-align:center; margin-top:1rem;">
+        <a href="menu.pdf" download="Menu-NuevoChopSuey.pdf" style="
+          display: inline-block;
+          background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+          color: #fff;
+          padding: 1.3rem 3.5rem;
+          text-decoration: none;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          font-size: 1.1rem;
+          border-radius: 3px;
+          transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+          box-shadow: 0 6px 30px rgba(192,57,43,0.45);
+          border: 2px solid var(--gold);
+        ">📋 Descargar Menú</a>
       </div>
-
-      <!-- ARROCES -->
-      <div class="menu-panel active" id="tab-arroz">
-        <div class="menu-card">
-          <span class="card-emoji">🍚</span>
-          <div class="card-name">Chaufa de Pollo</div>
-          <p class="card-desc">Arroz salteado al wok con pollo, huevo, cebollín y salsa de soya. El clásico preferido.
-          </p>
-          <div class="card-footer"><span class="card-price">$18.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🍤</span>
-          <div class="card-name">Chaufa de Camarón</div>
-          <p class="card-desc">Arroz frito con camarones frescos, pimientos, jengibre y salsa especial de la casa.</p>
-          <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥩</span>
-          <div class="card-name">Chaufa Mixto</div>
-          <p class="card-desc">Lo mejor de los dos mundos — pollo, carne y camarón salteados con arroz al wok.</p>
-          <div class="card-footer"><span class="card-price">$24.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🌿</span>
-          <div class="card-name">Chaufa Vegetariano</div>
-          <p class="card-desc">Arroz salteado con vegetales frescos de temporada, tofu y salsa teriyaki casera.</p>
-          <div class="card-footer"><span class="card-price">$15.000</span><span class="card-tag tag-new">Nuevo</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🐖</span>
-          <div class="card-name">Arroz con Cerdo Agridulce</div>
-          <p class="card-desc">Cerdo crocante en salsa agridulce con piña tropical, servido sobre arroz blanco.</p>
-          <div class="card-footer"><span class="card-price">$20.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🍳</span>
-          <div class="card-name">Arroz Cantonés</div>
-          <p class="card-desc">Receta tradicional con jamón, arveja, zanahoria y huevo revuelto. Sencillo y delicioso.
-          </p>
-          <div class="card-footer"><span class="card-price">$14.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARNES -->
-      <div class="menu-panel" id="tab-carnes">
-        <div class="menu-card">
-          <span class="card-emoji">🍗</span>
-          <div class="card-name">Pollo en Salsa de Ostión</div>
-          <p class="card-desc">Piezas de pollo tierno en salsa de ostión con brócoli y zanahoria. Acompañado de arroz.
-          </p>
-          <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥩</span>
-          <div class="card-name">Carne de Res con Jengibre</div>
-          <p class="card-desc">Láminas de res salteadas con jengibre fresco, cebollín y pimientos. Un clásico cantonés.
-          </p>
-          <div class="card-footer"><span class="card-price">$26.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🍤</span>
-          <div class="card-name">Camarón a la Mantequilla de Ajo</div>
-          <p class="card-desc">Camarones jumbo salteados con ajo, mantequilla y hierbas. Un sabor que enamora.</p>
-          <div class="card-footer"><span class="card-price">$28.000</span><span class="card-tag tag-new">Nuevo</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🐖</span>
-          <div class="card-name">Cerdo en Salsa Agridulce</div>
-          <p class="card-desc">Cerdo crocante bañado en nuestra salsa agridulce con piña, pimiento y cebolla.</p>
-          <div class="card-footer"><span class="card-price">$21.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🦆</span>
-          <div class="card-name">Pato a la Naranja</div>
-          <p class="card-desc">Especialidad de la casa. Pato asado con reducción de naranja y miel, servido con arroz.
-          </p>
-          <div class="card-footer"><span class="card-price">$35.000</span><span class="card-tag tag-fav">Especial</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SOPAS & ENTRADAS -->
-      <div class="menu-panel" id="tab-sopas">
-        <div class="menu-card">
-          <span class="card-emoji">🍜</span>
-          <div class="card-name">Sopa Wonton</div>
-          <p class="card-desc">Wontons rellenos de cerdo y camarón en caldo de pollo aromático con cebollín fresco.</p>
-          <div class="card-footer"><span class="card-price">$12.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥣</span>
-          <div class="card-name">Sopa de Maíz con Pollo</div>
-          <p class="card-desc">Sopa espesa de maíz con pollo desmenuzado y huevo hilado. Reconfortante y casera.</p>
-          <div class="card-footer"><span class="card-price">$10.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥟</span>
-          <div class="card-name">Gyozas (6 und)</div>
-          <p class="card-desc">Empanaditas chinas rellenas de cerdo y col, salteadas, con salsa de soya y vinagre.</p>
-          <div class="card-footer"><span class="card-price">$14.000</span><span class="card-tag tag-new">Nuevo</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥚</span>
-          <div class="card-name">Rollitos de Primavera (4 und)</div>
-          <p class="card-desc">Crujientes rollitos rellenos de vegetales y cerdo. Servidos con salsa agridulce.</p>
-          <div class="card-footer"><span class="card-price">$11.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- COMBOS -->
-      <div class="menu-panel" id="tab-combos">
-        <div class="menu-card">
-          <span class="card-emoji">🍱</span>
-          <div class="card-name">Combo Familiar (4 personas)</div>
-          <p class="card-desc">2 chaufas a elección + 1 carne + 1 sopa + 4 gaseosas. ¡El más pedido para llevar!</p>
-          <div class="card-footer"><span class="card-price">$75.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥡</span>
-          <div class="card-name">Combo Pareja</div>
-          <p class="card-desc">1 chaufa + 1 carne a elección + 2 gaseosas o jugos naturales. Perfecto para dos.</p>
-          <div class="card-footer"><span class="card-price">$42.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🍜</span>
-          <div class="card-name">Combo Ejecutivo (Almuerzo)</div>
-          <p class="card-desc">Sopa + plato principal a elección + bebida. Disponible de lunes a viernes 11am - 3pm.</p>
-          <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-new">Almuerzo</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🌟</span>
-          <div class="card-name">Combo Degustación</div>
-          <p class="card-desc">Rollitos + gyozas + chaufa mixto + carne a elección. Para conocer todo lo que ofrecemos.
-          </p>
-          <div class="card-footer"><span class="card-price">$55.000</span><span class="card-tag tag-fav">Especial</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- BEBIDAS -->
-      <div class="menu-panel" id="tab-bebidas">
-        <div class="menu-card">
-          <span class="card-emoji">🍵</span>
-          <div class="card-name">Té Chino Caliente</div>
-          <p class="card-desc">Selección de tés: Jazmín, Verde o Negro. Servido en tetera tradicional.</p>
-          <div class="card-footer"><span class="card-price">$5.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥤</span>
-          <div class="card-name">Jugo Natural</div>
-          <p class="card-desc">Frutos de temporada del llano: mango, maracuyá, lulo, guanábana o mora.</p>
-          <div class="card-footer"><span class="card-price">$6.000</span><span class="card-tag tag-pop">Popular</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🧊</span>
-          <div class="card-name">Limonada de Coco</div>
-          <p class="card-desc">Refrescante limonada con leche de coco y menta. El toque tropical perfecto.</p>
-          <div class="card-footer"><span class="card-price">$8.000</span><span class="card-tag tag-new">Nuevo</span>
-          </div>
-        </div>
-        <div class="menu-card">
-          <span class="card-emoji">🥛</span>
-          <div class="card-name">Gaseosa</div>
-          <p class="card-desc">Coca-Cola, Colombiana, Schweppes o agua mineral. Presentación personal.</p>
-          <div class="card-footer"><span class="card-price">$4.000</span><span class="card-tag tag-fav">Favorito</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="menu-note">* Precios sujetos a cambios sin previo aviso. Consulta disponibilidad de platos especiales.
-      </p>
     </div>
   </section>
 
@@ -1500,7 +1318,9 @@
         </div>
       </div>
       <p style="text-align:center; margin-top:1.5rem; color:#5A3030; font-size:0.85rem; font-style:italic;">
-        📸 Síguenos en Instagram para ver más fotos de nuestros platos: <strong>@nuevochopsuey_yopal</strong>
+        📸 Síguenos en Instagram para ver más fotos de nuestros platos: <a
+          href="https://www.instagram.com/nuevochopsuey"
+          style="color:var(--red-dark);font-weight:700;text-decoration:none;"><strong>@nuevochopsuey</strong></a>
       </p>
     </div>
   </section>
@@ -1573,7 +1393,14 @@
             <span class="contact-icon">📱</span>
             <div class="contact-detail-text">
               <strong>Redes Sociales</strong>
-              <span>Instagram: @nuevochopsuey_yopal<br>Facebook: Nuevo Chop Suey Yopal</span>
+              <span>
+                <a href="https://www.instagram.com/nuevochopsuey" target="_blank"
+                  style="color:inherit;text-decoration:none;">Instagram: @nuevochopsuey</a><br>
+                <a href="https://www.facebook.com/profile.php?id=61578380975182" target="_blank"
+                  style="color:inherit;text-decoration:none;">Facebook: Nuevo Chop Suey</a><br>
+                <a href="https://www.tiktok.com/@nuevochopsuey" target="_blank"
+                  style="color:inherit;text-decoration:none;">TikTok: @nuevochopsuey</a>
+              </span>
             </div>
           </div>
           <div class="contact-detail">
@@ -1608,6 +1435,11 @@
       <a href="#delivery">Domicilios</a>
       <a href="#contact">Contacto</a>
     </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="https://www.instagram.com/nuevochopsuey" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61578380975182" target="_blank">Facebook</a>
+      <a href="https://www.tiktok.com/@nuevochopsuey" target="_blank">TikTok</a>
+    </div>
     <p style="margin-top:1rem; font-size:0.72rem; color:rgba(255,255,255,0.25);">
       © 2024 Nuevo Chop Suey · Todos los derechos reservados
     </p>
@@ -1620,13 +1452,7 @@
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Menu tabs
-    function showTab(id, btn) {
-      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + id).classList.add('active');
-      btn.classList.add('active');
-    }
+
 
     // Smooth scroll offset for fixed nav
     document.querySelectorAll('a[href^="#"]').forEach(a => {
