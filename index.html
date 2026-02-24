@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Restaurante Chino en Yopal, Casanare. Comida china adaptada al sabor colombiano. Pedidos a domicilio disponibles.">
+<meta name="keywords" content="restaurante chino yopal, comida china yopal, domicilios yopal, restaurante casanare">
+<meta property="og:title" content="Dragón Dorado — Restaurante Chino · Yopal">
+<meta property="og:description" content="Sabores de Oriente con el corazón llanero. Pedidos a domicilio disponibles.">
+<title>Dragón Dorado — Restaurante Chino · Yopal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --red: #C0392B;
+    --red-dark: #8B1A1A;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --cream: #FAF4E8;
+    --dark: #1A0A0A;
+    --dark-mid: #2D1515;
+    --text: #3D1F1F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(26, 10, 10, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .nav-logo {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.3rem; color: var(--gold-light);
+    text-decoration: none; letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: #fff; font-size: 0.75rem; display: block; letter-spacing: 0.2em; font-family: 'Raleway', sans-serif; font-weight: 300; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold); color: var(--dark); padding: 0.5rem 1.2rem;
+    border-radius: 2px; font-weight: 700; font-size: 0.8rem;
+    text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--gold-light); display: block; transition: all 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--dark);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212,160,23,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(192,57,43,0.1) 0%, transparent 40%);
+  }
+  /* Decorative lanterns */
+  .lantern {
+    position: absolute;
+    width: 18px; height: 30px;
+    border-radius: 50% 50% 40% 40%;
+    opacity: 0.15;
+    animation: sway 4s ease-in-out infinite;
+  }
+  .lantern::after { content: ''; display: block; width: 2px; height: 20px; background: currentColor; margin: 0 auto; }
+  .lantern-1 { background: var(--gold); color: var(--gold); top: 8%; left: 15%; animation-delay: 0s; }
+  .lantern-2 { background: var(--red); color: var(--red); top: 5%; left: 40%; animation-delay: 0.8s; }
+  .lantern-3 { background: var(--gold); color: var(--gold); top: 10%; right: 20%; animation-delay: 1.5s; }
+  .lantern-4 { background: var(--red); color: var(--red); top: 3%; right: 45%; animation-delay: 0.4s; }
+  @keyframes sway { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+
+  /* Chinese pattern border top */
+  .hero-border {
+    position: absolute; top: 70px; left: 0; right: 0; height: 3px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 8px, transparent 8px, transparent 16px);
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2; text-align: center;
+    padding: 2rem; animation: fadeUp 1s ease both;
+  }
+  .hero-badge {
+    display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    padding: 0.3rem 1.5rem; margin-bottom: 1.5rem; font-weight: 600;
+  }
+  .hero-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    color: #fff; line-height: 1; margin-bottom: 0.5rem;
+    text-shadow: 0 0 60px rgba(212,160,23,0.3);
+  }
+  .hero-title .gold { color: var(--gold-light); }
+  .hero-sub {
+    font-size: clamp(0.8rem, 2vw, 1rem); color: rgba(255,255,255,0.6);
+    letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tagline {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: rgba(255,255,255,0.85); font-weight: 400;
+    margin-bottom: 3rem; font-style: italic;
+  }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red); color: #fff;
+    padding: 1rem 2.5rem; text-decoration: none;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 0.85rem; border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.4); color: #fff;
+    padding: 1rem 2.5rem; text-decoration: none;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 0.85rem; border-radius: 2px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(212,160,23,0.1); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .hero-scroll::after { content: '↓'; font-size: 1.2rem; }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 5rem 1.5rem; }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; display: block;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2rem, 5vw, 3rem); color: var(--dark);
+    line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .section-title.light { color: #fff; }
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    margin-bottom: 2rem;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img {
+    width: 100%; aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--red-dark) 0%, var(--dark-mid) 60%, #3D1515 100%);
+    border-radius: 2px; display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .about-img-icon { font-size: 8rem; opacity: 0.4; filter: grayscale(0.3); }
+  .about-img-badge {
+    position: absolute; bottom: -1rem; right: -1rem;
+    background: var(--gold); color: var(--dark);
+    width: 120px; height: 120px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 900; font-family: 'Noto Serif SC', serif;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+  .about-img-badge .year { font-size: 1.4rem; line-height: 1; }
+  .about-img-badge .since { font-size: 0.6rem; letter-spacing: 0.2em; font-family: 'Raleway', sans-serif; font-weight: 600; }
+  .about-features { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+  .feature { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--red-dark); }
+  .feature::before { content: '✦'; color: var(--gold); }
+  .about-text p { font-size: 1.05rem; line-height: 1.8; color: #5A3030; margin-bottom: 1.2rem; }
+
+  /* ── MENU ── */
+  #menu { background: var(--dark); position: relative; overflow: hidden; }
+  #menu::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 40px,
+      rgba(212,160,23,0.02) 40px, rgba(212,160,23,0.02) 80px
+    );
+  }
+  .menu-header { text-align: center; margin-bottom: 4rem; position: relative; z-index: 1; }
+  .menu-header .divider { margin: 0 auto 2rem; }
+  .menu-tabs {
+    display: flex; gap: 0; justify-content: center; margin-bottom: 3rem;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+    overflow: hidden; flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: transparent; border: none; color: rgba(255,255,255,0.5);
+    padding: 0.75rem 1.5rem; cursor: pointer; font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    transition: all 0.3s; border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .tab-btn:last-child { border-right: none; }
+  .tab-btn.active { background: var(--red); color: #fff; }
+  .tab-btn:hover:not(.active) { background: rgba(255,255,255,0.05); color: #fff; }
+
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .menu-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 1.5rem; transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .menu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold)); opacity: 0; transition: opacity 0.3s;
+  }
+  .menu-card:hover { transform: translateY(-4px); border-color: rgba(212,160,23,0.3); background: rgba(255,255,255,0.07); }
+  .menu-card:hover::before { opacity: 1; }
+  .card-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+  .card-name { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; }
+  .card-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 1rem; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .card-price { font-family: 'Noto Serif SC', serif; font-size: 1.2rem; color: var(--gold-light); font-weight: 700; }
+  .card-tag {
+    font-size: 0.65rem; letter-spacing: 0.1em; padding: 0.2rem 0.6rem;
+    border-radius: 20px; font-weight: 700; text-transform: uppercase;
+  }
+  .tag-pop { background: rgba(192,57,43,0.25); color: #FF8A7A; border: 1px solid rgba(192,57,43,0.4); }
+  .tag-new { background: rgba(212,160,23,0.2); color: var(--gold-light); border: 1px solid rgba(212,160,23,0.4); }
+  .tag-fav { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+
+  .menu-note {
+    text-align: center; margin-top: 3rem; position: relative; z-index: 1;
+    color: rgba(255,255,255,0.4); font-size: 0.85rem; font-style: italic;
+  }
+
+  /* Hidden panels */
+  .menu-panel { display: none; }
+  .menu-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--cream); }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+  .gallery-header .divider { margin: 0 auto 2rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    background: var(--dark-mid);
+    border-radius: 2px; overflow: hidden;
+    position: relative; cursor: pointer;
+    transition: transform 0.4s;
+  }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .gallery-item:hover { transform: scale(0.98); }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-inner {
+    width: 100%; height: 100%; min-height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #2D1515 0%, #3D2020 50%, #4A1C1C 100%);
+    position: relative;
+  }
+  .gallery-item:nth-child(2) .gallery-inner { background: linear-gradient(135deg, #1A2D1A 0%, #1C3520 100%); }
+  .gallery-item:nth-child(3) .gallery-inner { background: linear-gradient(135deg, #2D2515 0%, #3D3020 100%); }
+  .gallery-item:nth-child(4) .gallery-inner { background: linear-gradient(135deg, #1A1A2D 0%, #20203D 100%); }
+  .gallery-item:nth-child(5) .gallery-inner { background: linear-gradient(135deg, #2D1A2D 0%, #3D203D 100%); }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: rgba(192,57,43,0.7);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1rem 0.75rem 0.75rem;
+    color: rgba(255,255,255,0.9); font-size: 0.8rem; font-weight: 600;
+  }
+
+  /* ── INFO STRIP ── */
+  #info-strip {
+    background: var(--red-dark);
+    padding: 0;
+  }
+  .strip-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .strip-item {
+    padding: 3rem 2rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .strip-title { font-family: 'Noto Serif SC', serif; font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.75rem; }
+  .strip-text { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.7; }
+
+  /* ── DELIVERY ── */
+  #delivery {
+    background: var(--dark-mid); padding: 5rem 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  #delivery::before {
+    content: '🐉'; position: absolute; right: -2rem; top: 50%;
+    transform: translateY(-50%); font-size: 20rem; opacity: 0.04; line-height: 1;
+  }
+  .delivery-inner { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .delivery-inner .divider { margin: 0 auto 2rem; }
+  .delivery-inner p { color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; }
+  .delivery-zones {
+    display: flex; gap: 1rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap;
+  }
+  .zone-pill {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7); padding: 0.4rem 1rem; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 600;
+  }
+  .whatsapp-btn {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: #25D366; color: #fff; padding: 1.1rem 2.5rem;
+    border-radius: 3px; text-decoration: none;
+    font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+  }
+  .whatsapp-btn:hover { background: #1DA851; transform: translateY(-3px); }
+  .whatsapp-btn svg { width: 22px; height: 22px; fill: currentColor; }
+  .delivery-note { margin-top: 1.5rem; color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info h3 { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 1.5rem; }
+  .contact-detail {
+    display: flex; gap: 1rem; align-items: flex-start;
+    margin-bottom: 1.5rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .contact-detail-text strong { display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.3rem; }
+  .contact-detail-text span { color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; }
+  .hours-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px dashed rgba(0,0,0,0.07); font-size: 0.88rem; }
+  .hours-row .day { color: #5A3030; font-weight: 600; }
+  .hours-row .time { color: var(--red-dark); font-weight: 700; }
+  .hours-row .closed { color: rgba(0,0,0,0.35); }
+  .map-placeholder {
+    background: var(--dark-mid); border-radius: 4px; overflow: hidden;
+    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+    position: relative; border: 1px solid rgba(255,255,255,0.05);
+  }
+  .map-pin { font-size: 4rem; }
+  .map-text {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.8);
+    padding: 1rem; font-size: 0.85rem; text-align: center; line-height: 1.6;
+  }
+  .map-link {
+    display: inline-block; margin-top: 0.5rem;
+    color: var(--gold-light); text-decoration: none; font-weight: 600; font-size: 0.8rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 2.5rem 1.5rem;
+    border-top: 1px solid rgba(212,160,23,0.2);
+  }
+  .footer-logo {
+    font-family: 'Noto Serif SC', serif; font-size: 1.5rem;
+    color: var(--gold-light); margin-bottom: 0.5rem; display: block;
+  }
+  footer p { font-size: 0.8rem; margin-bottom: 0.3rem; }
+  .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-links { display: none; position: fixed; top: 60px; left: 0; right: 0;
+      background: var(--dark); flex-direction: column; padding: 2rem; gap: 1.5rem;
+      border-bottom: 1px solid rgba(212,160,23,0.2); z-index: 99; }
+    .nav-links.open { display: flex; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .strip-grid { grid-template-columns: 1fr; }
+    .strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .strip-item:last-child { border-bottom: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:first-child { grid-column: span 2; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hours-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    龙金餐厅
+    <span>Dragón Dorado · Yopal</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#delivery">Domicilios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/573001234567?text=Hola!%20Quiero%20hacer%20un%20pedido" class="nav-cta" target="_blank">Pedir Ahora</a>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-border"></div>
+  <div class="lantern lantern-1"></div>
+  <div class="lantern lantern-2"></div>
+  <div class="lantern lantern-3"></div>
+  <div class="lantern lantern-4"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Restaurante Chino · Yopal, Casanare</div>
+    <h1 class="hero-title"><span class="gold">Dragón</span> Dorado</h1>
+    <p class="hero-sub">Cocina Oriental · Sabor Llanero</p>
+    <p class="hero-tagline">"Sabores de Oriente con el alma del llano"</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Ver Menú</a>
+      <a href="#delivery" class="btn-secondary">Pedir Domicilio</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Explorar</div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img">
+          <div class="about-img-icon">🥢</div>
+        </div>
+        <div class="about-img-badge">
+          <span class="year">'09</span>
+          <span class="since">Desde</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Nuestra Historia</span>
+        <h2 class="section-title">Tradición, Sabor y Familia</h2>
+        <div class="divider"></div>
+        <p>
+          El Dragón Dorado nació del amor por la cocina y por el Yopal que adoptamos como hogar. Combinamos recetas auténticas de la cocina china con los sabores vibrantes y los ingredientes frescos del llano colombiano.
+        </p>
+        <p>
+          Cada plato que llega a tu mesa es preparado con ingredientes frescos, salsas de la casa y ese cariño familiar que nos distingue desde el primer día. Aquí no hay reservas — simplemente llegas, te sientas, y te atendemos como en casa.
+        </p>
+        <div class="about-features">
+          <span class="feature">Ingredientes frescos</span>
+          <span class="feature">Recetas propias</span>
+          <span class="feature">Familiar y popular</span>
+          <span class="feature">Domicilios disponibles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INFO STRIP ── -->
+<div id="info-strip">
+  <div class="strip-grid">
+    <div class="strip-item">
+      <span class="strip-icon">🕐</span>
+      <div class="strip-title">Sin Reservas</div>
+      <p class="strip-text">Atendemos por orden de llegada — ven, siéntate y disfruta. Abierto todos los días.</p>
+    </div>
+    <div class="strip-item">
+      <span class="strip-icon">🛵</span>
+      <div class="strip-title">Domicilios</div>
+      <p class="strip-text">Llevamos tu pedido a domicilio dentro de Yopal. ¡Pide por WhatsApp fácil y rápido!</p>
+    </div>
+    <div class="strip-item">
+      <span class="strip-icon">🍜</span>
+      <div class="strip-title">Cocina Auténtica</div>
+      <p class="strip-text">Recetas chinas adaptadas al paladar colombiano. Sazón de casa en cada plato.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <span class="section-label">Nuestra Carta</span>
+      <h2 class="section-title light">Lo Mejor de Nuestra Cocina</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.5); max-width:550px; margin: 0 auto 2rem; line-height:1.7;">
+        Platos preparados al momento con salsas de la casa. Todos los precios incluyen IVA.
+      </p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="showTab('arroz', this)">Arroces</button>
+      <button class="tab-btn" onclick="showTab('carnes', this)">Carnes</button>
+      <button class="tab-btn" onclick="showTab('sopas', this)">Sopas & Entradas</button>
+      <button class="tab-btn" onclick="showTab('combos', this)">Combos</button>
+      <button class="tab-btn" onclick="showTab('bebidas', this)">Bebidas</button>
+    </div>
+
+    <!-- ARROCES -->
+    <div class="menu-panel active" id="tab-arroz">
+      <div class="menu-card">
+        <span class="card-emoji">🍚</span>
+        <div class="card-name">Chaufa de Pollo</div>
+        <p class="card-desc">Arroz salteado al wok con pollo, huevo, cebollín y salsa de soya. El clásico preferido.</p>
+        <div class="card-footer"><span class="card-price">$18.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🍤</span>
+        <div class="card-name">Chaufa de Camarón</div>
+        <p class="card-desc">Arroz frito con camarones frescos, pimientos, jengibre y salsa especial de la casa.</p>
+        <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥩</span>
+        <div class="card-name">Chaufa Mixto</div>
+        <p class="card-desc">Lo mejor de los dos mundos — pollo, carne y camarón salteados con arroz al wok.</p>
+        <div class="card-footer"><span class="card-price">$24.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🌿</span>
+        <div class="card-name">Chaufa Vegetariano</div>
+        <p class="card-desc">Arroz salteado con vegetales frescos de temporada, tofu y salsa teriyaki casera.</p>
+        <div class="card-footer"><span class="card-price">$15.000</span><span class="card-tag tag-new">Nuevo</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🐖</span>
+        <div class="card-name">Arroz con Cerdo Agridulce</div>
+        <p class="card-desc">Cerdo crocante en salsa agridulce con piña tropical, servido sobre arroz blanco.</p>
+        <div class="card-footer"><span class="card-price">$20.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🍳</span>
+        <div class="card-name">Arroz Cantonés</div>
+        <p class="card-desc">Receta tradicional con jamón, arveja, zanahoria y huevo revuelto. Sencillo y delicioso.</p>
+        <div class="card-footer"><span class="card-price">$14.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+    </div>
+
+    <!-- CARNES -->
+    <div class="menu-panel" id="tab-carnes">
+      <div class="menu-card">
+        <span class="card-emoji">🍗</span>
+        <div class="card-name">Pollo en Salsa de Ostión</div>
+        <p class="card-desc">Piezas de pollo tierno en salsa de ostión con brócoli y zanahoria. Acompañado de arroz.</p>
+        <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥩</span>
+        <div class="card-name">Carne de Res con Jengibre</div>
+        <p class="card-desc">Láminas de res salteadas con jengibre fresco, cebollín y pimientos. Un clásico cantonés.</p>
+        <div class="card-footer"><span class="card-price">$26.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🍤</span>
+        <div class="card-name">Camarón a la Mantequilla de Ajo</div>
+        <p class="card-desc">Camarones jumbo salteados con ajo, mantequilla y hierbas. Un sabor que enamora.</p>
+        <div class="card-footer"><span class="card-price">$28.000</span><span class="card-tag tag-new">Nuevo</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🐖</span>
+        <div class="card-name">Cerdo en Salsa Agridulce</div>
+        <p class="card-desc">Cerdo crocante bañado en nuestra salsa agridulce con piña, pimiento y cebolla.</p>
+        <div class="card-footer"><span class="card-price">$21.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🦆</span>
+        <div class="card-name">Pato a la Naranja</div>
+        <p class="card-desc">Especialidad de la casa. Pato asado con reducción de naranja y miel, servido con arroz.</p>
+        <div class="card-footer"><span class="card-price">$35.000</span><span class="card-tag tag-fav">Especial</span></div>
+      </div>
+    </div>
+
+    <!-- SOPAS & ENTRADAS -->
+    <div class="menu-panel" id="tab-sopas">
+      <div class="menu-card">
+        <span class="card-emoji">🍜</span>
+        <div class="card-name">Sopa Wonton</div>
+        <p class="card-desc">Wontons rellenos de cerdo y camarón en caldo de pollo aromático con cebollín fresco.</p>
+        <div class="card-footer"><span class="card-price">$12.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥣</span>
+        <div class="card-name">Sopa de Maíz con Pollo</div>
+        <p class="card-desc">Sopa espesa de maíz con pollo desmenuzado y huevo hilado. Reconfortante y casera.</p>
+        <div class="card-footer"><span class="card-price">$10.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥟</span>
+        <div class="card-name">Gyozas (6 und)</div>
+        <p class="card-desc">Empanaditas chinas rellenas de cerdo y col, salteadas, con salsa de soya y vinagre.</p>
+        <div class="card-footer"><span class="card-price">$14.000</span><span class="card-tag tag-new">Nuevo</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥚</span>
+        <div class="card-name">Rollitos de Primavera (4 und)</div>
+        <p class="card-desc">Crujientes rollitos rellenos de vegetales y cerdo. Servidos con salsa agridulce.</p>
+        <div class="card-footer"><span class="card-price">$11.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+    </div>
+
+    <!-- COMBOS -->
+    <div class="menu-panel" id="tab-combos">
+      <div class="menu-card">
+        <span class="card-emoji">🍱</span>
+        <div class="card-name">Combo Familiar (4 personas)</div>
+        <p class="card-desc">2 chaufas a elección + 1 carne + 1 sopa + 4 gaseosas. ¡El más pedido para llevar!</p>
+        <div class="card-footer"><span class="card-price">$75.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥡</span>
+        <div class="card-name">Combo Pareja</div>
+        <p class="card-desc">1 chaufa + 1 carne a elección + 2 gaseosas o jugos naturales. Perfecto para dos.</p>
+        <div class="card-footer"><span class="card-price">$42.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🍜</span>
+        <div class="card-name">Combo Ejecutivo (Almuerzo)</div>
+        <p class="card-desc">Sopa + plato principal a elección + bebida. Disponible de lunes a viernes 11am - 3pm.</p>
+        <div class="card-footer"><span class="card-price">$22.000</span><span class="card-tag tag-new">Almuerzo</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🌟</span>
+        <div class="card-name">Combo Degustación</div>
+        <p class="card-desc">Rollitos + gyozas + chaufa mixto + carne a elección. Para conocer todo lo que ofrecemos.</p>
+        <div class="card-footer"><span class="card-price">$55.000</span><span class="card-tag tag-fav">Especial</span></div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="menu-panel" id="tab-bebidas">
+      <div class="menu-card">
+        <span class="card-emoji">🍵</span>
+        <div class="card-name">Té Chino Caliente</div>
+        <p class="card-desc">Selección de tés: Jazmín, Verde o Negro. Servido en tetera tradicional.</p>
+        <div class="card-footer"><span class="card-price">$5.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥤</span>
+        <div class="card-name">Jugo Natural</div>
+        <p class="card-desc">Frutos de temporada del llano: mango, maracuyá, lulo, guanábana o mora.</p>
+        <div class="card-footer"><span class="card-price">$6.000</span><span class="card-tag tag-pop">Popular</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🧊</span>
+        <div class="card-name">Limonada de Coco</div>
+        <p class="card-desc">Refrescante limonada con leche de coco y menta. El toque tropical perfecto.</p>
+        <div class="card-footer"><span class="card-price">$8.000</span><span class="card-tag tag-new">Nuevo</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="card-emoji">🥛</span>
+        <div class="card-name">Gaseosa</div>
+        <p class="card-desc">Coca-Cola, Colombiana, Schweppes o agua mineral. Presentación personal.</p>
+        <div class="card-footer"><span class="card-price">$4.000</span><span class="card-tag tag-fav">Favorito</span></div>
+      </div>
+    </div>
+
+    <p class="menu-note">* Precios sujetos a cambios sin previo aviso. Consulta disponibilidad de platos especiales.</p>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-label">Galería</span>
+      <h2 class="section-title">Nuestros Platos y Ambiente</h2>
+      <div class="divider"></div>
+      <p style="color:#5A3030; max-width:500px; margin: 0 auto; line-height:1.7;">
+        Cada plato es una obra de arte. Aquí una muestra de lo que te espera.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-inner">🍜</div>
+        <div class="gallery-overlay">Ver Foto</div>
+        <div class="gallery-caption">Chaufa Mixto — Plato Estrella</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-inner">🥢</div>
+        <div class="gallery-overlay">Ver Foto</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-inner">🥟</div>
+        <div class="gallery-overlay">Ver Foto</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-inner">🍤</div>
+        <div class="gallery-overlay">Ver Foto</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-inner">🏮</div>
+        <div class="gallery-overlay">Ver Foto</div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; color:#5A3030; font-size:0.85rem; font-style:italic;">
+      📸 Síguenos en Instagram para ver más fotos de nuestros platos: <strong>@dragondorado_yopal</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ── DELIVERY ── -->
+<section id="delivery">
+  <div class="delivery-inner">
+    <span class="section-label" style="color: var(--gold);">Pedidos a Domicilio</span>
+    <h2 class="section-title light">¡Lo llevamos hasta tu puerta!</h2>
+    <div class="divider"></div>
+    <p>
+      Hacemos domicilios dentro de Yopal. Solo envíanos un mensaje por WhatsApp con tu pedido y dirección — es así de fácil. Sin apps complicadas, sin plataformas. Directo con nosotros para atenderte mejor.
+    </p>
+    <div class="delivery-zones">
+      <span class="zone-pill">📍 Centro</span>
+      <span class="zone-pill">📍 La Bendición</span>
+      <span class="zone-pill">📍 El Remanso</span>
+      <span class="zone-pill">📍 Villa Turpial</span>
+      <span class="zone-pill">📍 Y más zonas</span>
+    </div>
+    <a href="https://wa.me/573001234567?text=Hola!%20Quiero%20hacer%20un%20pedido%20a%20domicilio%20%F0%9F%8D%9C" class="whatsapp-btn" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Pedir por WhatsApp
+    </a>
+    <p class="delivery-note">Tiempo estimado de entrega: 30 – 50 minutos · Costo de domicilio según zona</p>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="section-label">Encuéntranos</span>
+      <h2 class="section-title">Visítanos o Llámanos</h2>
+      <div class="divider" style="margin: 0 auto;"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Información del Restaurante</h3>
+        <div class="contact-detail">
+          <span class="contact-icon">📍</span>
+          <div class="contact-detail-text">
+            <strong>Dirección</strong>
+            <span>Calle 20 #15-42, Barrio Centro<br>Yopal, Casanare, Colombia</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">📞</span>
+          <div class="contact-detail-text">
+            <strong>Teléfono / WhatsApp</strong>
+            <span><a href="tel:+573001234567" style="color:inherit;">300 123 4567</a></span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">🕐</span>
+          <div class="contact-detail-text">
+            <strong>Horario de Atención</strong>
+            <div class="hours-grid" style="margin-top:0.75rem;">
+              <div class="hours-row"><span class="day">Lun – Vie</span><span class="time">11am – 9pm</span></div>
+              <div class="hours-row"><span class="day">Sábado</span><span class="time">11am – 10pm</span></div>
+              <div class="hours-row"><span class="day">Domingo</span><span class="time">12pm – 8pm</span></div>
+              <div class="hours-row"><span class="day">Festivos</span><span class="time">12pm – 8pm</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">📱</span>
+          <div class="contact-detail-text">
+            <strong>Redes Sociales</strong>
+            <span>Instagram: @dragondorado_yopal<br>Facebook: Dragón Dorado Yopal</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-icon">🪑</span>
+          <div class="contact-detail-text">
+            <strong>Política de Atención</strong>
+            <span>Atención por orden de llegada — sin reservas. ¡Simplemente ven y disfruta!</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-placeholder">
+          <span class="map-pin">📍</span>
+          <div class="map-text">
+            Calle 20 #15-42, Centro — Yopal, Casanare<br>
+            <a href="https://maps.google.com/?q=Yopal,Casanare,Colombia" target="_blank" class="map-link">📌 Abrir en Google Maps →</a>
+          </div>
+        </div>
+        <p style="margin-top:1rem; font-size:0.85rem; color:#5A3030; line-height:1.7; font-style:italic; text-align:center;">
+          💡 Reemplaza la imagen del mapa con el mapa real de Google Maps cuando tengas la dirección exacta.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-logo">龙金餐厅 · Dragón Dorado</span>
+  <p>Cocina China adaptada al sabor llanero · Yopal, Casanare</p>
+  <div class="footer-links">
+    <a href="#about">Nosotros</a>
+    <a href="#menu">Menú</a>
+    <a href="#delivery">Domicilios</a>
+    <a href="#contact">Contacto</a>
+  </div>
+  <p style="margin-top:1rem; font-size:0.72rem; color:rgba(255,255,255,0.25);">
+    © 2024 Dragón Dorado · Todos los derechos reservados
+  </p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Menu tabs
+  function showTab(id, btn) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Smooth scroll offset for fixed nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 72;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Animate cards on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = (i * 0.07) + 's';
+        entry.target.style.animation = 'fadeUp 0.6s ease both';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.menu-card, .strip-item, .gallery-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
