@@ -288,6 +288,7 @@
     }
 
     .btn-primary {
+      display: inline-block;
       background: var(--red);
       color: #fff;
       padding: 1rem 2.5rem;
@@ -297,6 +298,7 @@
       text-transform: uppercase;
       font-size: 0.85rem;
       border-radius: 2px;
+      cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 20px rgba(192, 57, 43, 0.4);
     }
@@ -1191,7 +1193,7 @@
       <p class="hero-sub">Cocina Oriental · Sabor Llanero</p>
       <p class="hero-tagline">"El primer restaurante chino en Yopal"</p>
       <div class="hero-btns">
-        <a href="#menu" class="btn-primary">Ver Menú</a>
+        <a href="menu.pdf" download="Menu-NuevoChopSuey.pdf" target="_blank" class="btn-primary">Ver Menú</a>
         <a href="#delivery" class="btn-secondary">Pedir Domicilio</a>
       </div>
     </div>
@@ -1263,22 +1265,10 @@
         </p>
       </div>
 
-      <div style="text-align:center; margin-top:1rem;">
-        <a href="menu.pdf" download="Menu-NuevoChopSuey.pdf" style="
-          display: inline-block;
-          background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
-          color: #fff;
-          padding: 1.3rem 3.5rem;
-          text-decoration: none;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          font-size: 1.1rem;
-          border-radius: 3px;
-          transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-          box-shadow: 0 6px 30px rgba(192,57,43,0.45);
-          border: 2px solid var(--gold);
-        ">📋 Descargar Menú</a>
+      <div style="text-align:center; margin-top:1rem; position:relative; z-index:1;">
+        <a href="menu.pdf" download="Menu-NuevoChopSuey.pdf" target="_blank" class="btn-primary"
+          style="padding:1.4rem 3.5rem; font-size:1.1rem; border:2px solid var(--gold); box-shadow:0 6px 30px rgba(192,57,43,0.45);">📋
+          Descargar Menú</a>
       </div>
     </div>
   </section>
